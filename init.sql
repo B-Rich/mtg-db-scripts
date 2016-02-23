@@ -70,6 +70,18 @@ CREATE TABLE cards (
 	CONSTRAINT fk_setCode FOREIGN KEY (setCode) REFERENCES sets (id)
 ); 
 
+DROP TABLE IF EXISTS card_ratings; 
+CREATE TABLE card_ratings (
+	id int NOT NULL AUTO_INCREMENT, 
+    username varchar(45) NOT NULL, 
+    card_id varchar(50) NOT NULL, 
+    value int NOT NULL, 
+    PRIMARY KEY (id), 
+    UNIQUE KEY uq_cr_userCard (username, card_id), 
+    CONSTRAINT fk_cr_cardId FOREIGN KEY (card_id) REFERENCES cards (id), 
+    CONSTRAINT fk_cr_username FOREIGN KEY (username) REFERENCES users (username)
+); 
+
 /*Create the comment tables*/
 DROP TABLE IF EXISTS card_comments; 
 CREATE TABLE card_comments (
