@@ -1,2 +1,2 @@
 # mtg-db-scripts
-Database scripts to initialize the server database tables. 
+SQL scripts to initialize the MySQL database to be used by the mtg-server project. 
